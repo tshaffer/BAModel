@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
-using System.Windows.Media;
+//using System.Windows.Media;
 using System.ComponentModel;
-using System.Windows.Controls;
+//using System.Windows.Controls;
 using System.Windows;
 using System.Collections.ObjectModel;
 
@@ -22,12 +22,12 @@ namespace BAModel
         private bool _assignWildcardToUserVariable = false;
         private string _variableToAssignFromWildcard = String.Empty;
 
-        private Image _image = null;
-        private ArrowLine _line = null;
-        private StackPanel _label = null;
+//        private Image _image = null;
+//        private ArrowLine _line = null;
+//        private StackPanel _label = null;
 
-        private Point _imageAnchor, _labelAnchor;
-        private Point _lineStartPointAnchor, _lineEndPointAnchor;
+//        private Point _imageAnchor, _labelAnchor;
+//        private Point _lineStartPointAnchor, _lineEndPointAnchor;
 
         private string _sourceMediaStateName = ""; // used only for reading xml
         private string _targetMediaStateName = ""; // used only for reading xml
@@ -44,12 +44,12 @@ namespace BAModel
 
         private double iconWidth = 24;
 
-        private Image _imgIcon = null;
-        private Image _imgIconSelected = null;
+//        private Image _imgIcon = null;
+//        private Image _imgIconSelected = null;
 
-        private Border _mediaStateID;
-        private TextBlock _mediaStateIDText;
-        private Image _imgHome = null;
+//        private Border _mediaStateID;
+//        private TextBlock _mediaStateIDText;
+//        private Image _imgHome = null;
 
         public Transition()
         {
@@ -272,134 +272,134 @@ namespace BAModel
             }
         }
 
-        public void CreateGraphics(Canvas canvas)
-        {
-            StackPanel sp = null;
+//        public void CreateGraphics(Canvas canvas)
+//        {
+//            StackPanel sp = null;
+//
+//            MediaState sourceMediaState = SourceMediaState;
+//            MediaState targetMediaState = TargetMediaState;
+//
+//            System.Windows.Rect sourceRect = sourceMediaState.Rect;
+//
+//            double xSourceCenter, xSourceRight, ySourceTop, ySourceBottom, ySourceMiddle;
+//            xSourceCenter = sourceRect.X + (sourceRect.Width / 2);
+//            xSourceRight = sourceRect.X + sourceRect.Width;
+//            ySourceTop = sourceRect.Y;
+//            ySourceBottom = ySourceTop + sourceRect.Height;
+//            ySourceMiddle = (ySourceTop + ySourceBottom) / 2;
+//
+//            if (DisplayMode == "displayLabel")
+//            {
+//                if (LabelLocation == "right")
+//                {
+//                    sp = CreateLabel(xSourceRight + widthBetweenMediaStateAndMiniThumb, ySourceMiddle, targetMediaState);
+//                    _line = CreateLine(xSourceRight, xSourceRight + widthBetweenMediaStateAndMiniThumb, ySourceMiddle, ySourceMiddle);
+//                    CreateEventImage(xSourceRight + (widthBetweenMediaStateAndMiniThumb / 2), ySourceMiddle);
+//                }
+//                else if (LabelLocation == "bottom")
+//                {
+//                    sp = CreateLabel(xSourceCenter, ySourceBottom + heightBetweenMediaStateAndMiniThumb, targetMediaState);
+//                    _line = CreateLine(xSourceCenter, xSourceCenter, ySourceBottom, ySourceBottom + heightBetweenMediaStateAndMiniThumb);
+//                    CreateEventImage(xSourceCenter, (_line.Y1 + _line.Y2) / 2);
+//                }
+//
+//                _label = sp;
+//
+//                if (_label != null) canvas.Children.Add(_label);
+//                canvas.Children.Add(_line);
+//                try
+//                {
+//                    canvas.Children.Add(_image);
+//                }
+//                catch (Exception ex)
+//                {
+//                    Console.WriteLine("DisplayMode == displayLabel, exception is " + ex.Message);
+//                }
+//            }
+//            else
+//            {
+//                if (TargetMediaState != null)
+//                {
+//                    System.Windows.Rect destinationRect = targetMediaState.Rect;
+//                    double xDestinationCenter, yDestinationTop, yDestinationBottom, yDestinationMiddle;
+//                    xDestinationCenter = destinationRect.X + (destinationRect.Width / 2);
+//                    yDestinationTop = destinationRect.Y;
+//                    yDestinationBottom = yDestinationTop + destinationRect.Height;
+//                    yDestinationMiddle = (yDestinationTop + yDestinationBottom) / 2;
+//
+//                    _line = CreateLine(xSourceCenter, xDestinationCenter, ySourceBottom, yDestinationTop);
+//                    canvas.Children.Add(_line);
+//
+//                    CreateEventImage((xSourceCenter + xDestinationCenter) / 2, (_line.Y1 + _line.Y2) / 2);
+//                    try
+//                    {
+//                        canvas.Children.Add(_image);
+//                    }
+//                    catch (Exception ex)
+//                    {
+//                        Console.WriteLine("DisplayMode != displayLabel, exception is " + ex.Message);
+//                    }
+//                }
+//            }
+//        }
 
-            MediaState sourceMediaState = SourceMediaState;
-            MediaState targetMediaState = TargetMediaState;
+//        private StackPanel CreateLabel(double x, double y, MediaState mediaState)
+//        {
+//            if (mediaState != null)
+//            {
+//                StackPanel stackPanel = new StackPanel();
+//                stackPanel.Orientation = Orientation.Vertical;
+//                stackPanel.SetValue(Canvas.LeftProperty, x);
+//                stackPanel.SetValue(Canvas.TopProperty, y);
+//
+//                _mediaStateIDText = new TextBlock();
+//                _mediaStateIDText.Text = mediaState.ID.ToString();
+//                _mediaStateIDText.Padding = new Thickness(5);
+//                _mediaStateIDText.MinHeight = 24;
+//                _mediaStateIDText.MinWidth = 24;
+//                _mediaStateIDText.TextAlignment = TextAlignment.Center;
+//                _mediaStateIDText.HorizontalAlignment = HorizontalAlignment.Center;
+//
+//                _mediaStateID = new Border();
+//                SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+//                mySolidColorBrush.Color = Color.FromArgb(255, 225, 226, 231);
+//                _mediaStateID.Background = mySolidColorBrush;
+//                _mediaStateID.BorderThickness = new Thickness(2);
+//                _mediaStateID.CornerRadius = new CornerRadius(16);
+//                _mediaStateID.Child = _mediaStateIDText;
+//
+//                stackPanel.Children.Add(_mediaStateID);
+//
+//                ToolTip tt = new ToolTip();
+//                StackPanel spThumb = mediaState.CreateToolTip();
+//                tt.Content = spThumb;
+//                stackPanel.ToolTip = tt;
+//
+//                return stackPanel;
+//            }
+//            else
+//            {
+//                return null;
+//            }
+//        }
 
-            System.Windows.Rect sourceRect = sourceMediaState.Rect;
-
-            double xSourceCenter, xSourceRight, ySourceTop, ySourceBottom, ySourceMiddle;
-            xSourceCenter = sourceRect.X + (sourceRect.Width / 2);
-            xSourceRight = sourceRect.X + sourceRect.Width;
-            ySourceTop = sourceRect.Y;
-            ySourceBottom = ySourceTop + sourceRect.Height;
-            ySourceMiddle = (ySourceTop + ySourceBottom) / 2;
-
-            if (DisplayMode == "displayLabel")
-            {
-                if (LabelLocation == "right")
-                {
-                    sp = CreateLabel(xSourceRight + widthBetweenMediaStateAndMiniThumb, ySourceMiddle, targetMediaState);
-                    _line = CreateLine(xSourceRight, xSourceRight + widthBetweenMediaStateAndMiniThumb, ySourceMiddle, ySourceMiddle);
-                    CreateEventImage(xSourceRight + (widthBetweenMediaStateAndMiniThumb / 2), ySourceMiddle);
-                }
-                else if (LabelLocation == "bottom")
-                {
-                    sp = CreateLabel(xSourceCenter, ySourceBottom + heightBetweenMediaStateAndMiniThumb, targetMediaState);
-                    _line = CreateLine(xSourceCenter, xSourceCenter, ySourceBottom, ySourceBottom + heightBetweenMediaStateAndMiniThumb);
-                    CreateEventImage(xSourceCenter, (_line.Y1 + _line.Y2) / 2);
-                }
-
-                _label = sp;
-
-                if (_label != null) canvas.Children.Add(_label);
-                canvas.Children.Add(_line);
-                try
-                {
-                    canvas.Children.Add(_image);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("DisplayMode == displayLabel, exception is " + ex.Message);
-                }
-            }
-            else
-            {
-                if (TargetMediaState != null)
-                {
-                    System.Windows.Rect destinationRect = targetMediaState.Rect;
-                    double xDestinationCenter, yDestinationTop, yDestinationBottom, yDestinationMiddle;
-                    xDestinationCenter = destinationRect.X + (destinationRect.Width / 2);
-                    yDestinationTop = destinationRect.Y;
-                    yDestinationBottom = yDestinationTop + destinationRect.Height;
-                    yDestinationMiddle = (yDestinationTop + yDestinationBottom) / 2;
-
-                    _line = CreateLine(xSourceCenter, xDestinationCenter, ySourceBottom, yDestinationTop);
-                    canvas.Children.Add(_line);
-
-                    CreateEventImage((xSourceCenter + xDestinationCenter) / 2, (_line.Y1 + _line.Y2) / 2);
-                    try
-                    {
-                        canvas.Children.Add(_image);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("DisplayMode != displayLabel, exception is " + ex.Message);
-                    }
-                }
-            }
-        }
-
-        private StackPanel CreateLabel(double x, double y, MediaState mediaState)
-        {
-            if (mediaState != null)
-            {
-                StackPanel stackPanel = new StackPanel();
-                stackPanel.Orientation = Orientation.Vertical;
-                stackPanel.SetValue(Canvas.LeftProperty, x);
-                stackPanel.SetValue(Canvas.TopProperty, y);
-
-                _mediaStateIDText = new TextBlock();
-                _mediaStateIDText.Text = mediaState.ID.ToString();
-                _mediaStateIDText.Padding = new Thickness(5);
-                _mediaStateIDText.MinHeight = 24;
-                _mediaStateIDText.MinWidth = 24;
-                _mediaStateIDText.TextAlignment = TextAlignment.Center;
-                _mediaStateIDText.HorizontalAlignment = HorizontalAlignment.Center;
-
-                _mediaStateID = new Border();
-                SolidColorBrush mySolidColorBrush = new SolidColorBrush();
-                mySolidColorBrush.Color = Color.FromArgb(255, 225, 226, 231);
-                _mediaStateID.Background = mySolidColorBrush;
-                _mediaStateID.BorderThickness = new Thickness(2);
-                _mediaStateID.CornerRadius = new CornerRadius(16);
-                _mediaStateID.Child = _mediaStateIDText;
-
-                stackPanel.Children.Add(_mediaStateID);
-
-                ToolTip tt = new ToolTip();
-                StackPanel spThumb = mediaState.CreateToolTip();
-                tt.Content = spThumb;
-                stackPanel.ToolTip = tt;
-
-                return stackPanel;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public void RemoveGraphics(Canvas canvas)
-        {
-            if (_mediaStateID != null)
-            {
-                _mediaStateID.Child = null;
-            }
-
-            if (_imgIcon != null)
-            {
-                canvas.Children.Remove(_imgIcon);
-            }
-
-            canvas.Children.Remove(_label);
-            canvas.Children.Remove(_image);
-            canvas.Children.Remove(_line);
-
-        }
+//        public void RemoveGraphics(Canvas canvas)
+//        {
+//            if (_mediaStateID != null)
+//            {
+//                _mediaStateID.Child = null;
+//            }
+//
+//            if (_imgIcon != null)
+//            {
+//                canvas.Children.Remove(_imgIcon);
+//            }
+//
+//            canvas.Children.Remove(_label);
+//            canvas.Children.Remove(_image);
+//            canvas.Children.Remove(_line);
+//
+//        }
 
         public void MoveGraphicsVertically(double newY)
         {
@@ -456,20 +456,20 @@ namespace BAModel
             }
         }
 
-        private ArrowLine CreateLine(double x1, double x2, double y1, double y2)
-        {
-            ArrowLine line = new ArrowLine();
-            line.X1 = x1;
-            line.X2 = x2;
-            line.Y1 = y1;
-            line.Y2 = y2;
-            line.Stroke = Brushes.Black;
-            line.StrokeThickness = 1;
-            line.IsArrowClosed = true;
-            line.Fill = Brushes.Black;
-            line.ArrowLength = 8;
-            return line;
-        }
+//        private ArrowLine CreateLine(double x1, double x2, double y1, double y2)
+//        {
+//            ArrowLine line = new ArrowLine();
+//            line.X1 = x1;
+//            line.X2 = x2;
+//            line.Y1 = y1;
+//            line.Y2 = y2;
+//            line.Stroke = Brushes.Black;
+//            line.StrokeThickness = 1;
+//            line.IsArrowClosed = true;
+//            line.Fill = Brushes.Black;
+//            line.ArrowLength = 8;
+//            return line;
+//        }
 
         private double CorrectXPosition(double x)
         {
@@ -502,18 +502,18 @@ namespace BAModel
             _image.ContextMenu = cm;
         }
 
-        private Point GetCurrentPosition(DependencyObject depObj)
-        {
-            Object o = null;
-
-            o = depObj.GetValue(Canvas.LeftProperty);
-            double left = (double)o;
-
-            o = depObj.GetValue(Canvas.TopProperty);
-            double top = (double)o;
-
-            return new Point(left, top);
-        }
+//        private Point GetCurrentPosition(DependencyObject depObj)
+//        {
+//            Object o = null;
+//
+//            o = depObj.GetValue(Canvas.LeftProperty);
+//            double left = (double)o;
+//
+//            o = depObj.GetValue(Canvas.TopProperty);
+//            double top = (double)o;
+//
+//            return new Point(left, top);
+//        }
 
         public void SetSourceAnchors()
         {
@@ -547,11 +547,11 @@ namespace BAModel
             }
         }
 
-        private void UpdatePosition(DependencyObject depObj, Point anchorPosition, double deltaX, double deltaY)
-        {
-            depObj.SetValue(Canvas.LeftProperty, anchorPosition.X + deltaX);
-            depObj.SetValue(Canvas.TopProperty, anchorPosition.Y + deltaY);
-        }
+//        private void UpdatePosition(DependencyObject depObj, Point anchorPosition, double deltaX, double deltaY)
+//        {
+//            depObj.SetValue(Canvas.LeftProperty, anchorPosition.X + deltaX);
+//            depObj.SetValue(Canvas.TopProperty, anchorPosition.Y + deltaY);
+//        }
 
         public void UpdateSourcePositions(double deltaX, double deltaY)
         {
@@ -676,45 +676,45 @@ namespace BAModel
             set { _variableToAssignFromWildcard = value; }
         }
 
-        private System.Windows.Rect GetRectFromBorder(Image img)
-        {
-            Object o = img.GetValue(Canvas.LeftProperty);
-            double left = (double)o;
+//        private System.Windows.Rect GetRectFromBorder(Image img)
+//        {
+//            Object o = img.GetValue(Canvas.LeftProperty);
+//            double left = (double)o;
+//
+//            o = img.GetValue(Canvas.TopProperty);
+//            double top = (double)o;
+//
+//            System.Windows.Rect rect = new System.Windows.Rect(left, top, img.ActualWidth, img.ActualHeight);
+//
+//            return rect;
+//        }
 
-            o = img.GetValue(Canvas.TopProperty);
-            double top = (double)o;
-
-            System.Windows.Rect rect = new System.Windows.Rect(left, top, img.ActualWidth, img.ActualHeight);
-
-            return rect;
-        }
-
-        public bool IsSelected(Point position)
-        {
-            if (DisplayMode == "displayConnectingLine")
-            {
-                if (_image != null)
-                {
-                    System.Windows.Rect rect = GetRectFromBorder(_image);
-                    if (rect.Contains(position)) return true;
-                }
-            }
-
-            else
-            {
-                if (DisplayMode == "displayLabel")
-                {
-                    if (_image != null)
-                    {
-                        System.Windows.Rect rect = GetRectFromBorder(_image);
-                        if (rect.Contains(position)) return true;
-                    }
-                }
-
-            }
-            
-            return false;
-        }
+//        public bool IsSelected(Point position)
+//        {
+//            if (DisplayMode == "displayConnectingLine")
+//            {
+//                if (_image != null)
+//                {
+//                    System.Windows.Rect rect = GetRectFromBorder(_image);
+//                    if (rect.Contains(position)) return true;
+//                }
+//            }
+//
+//            else
+//            {
+//                if (DisplayMode == "displayLabel")
+//                {
+//                    if (_image != null)
+//                    {
+//                        System.Windows.Rect rect = GetRectFromBorder(_image);
+//                        if (rect.Contains(position)) return true;
+//                    }
+//                }
+//
+//            }
+//            
+//            return false;
+//        }
 
         public void WriteToXml(XmlTextWriter writer, bool publish)
         {

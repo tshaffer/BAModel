@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Xml;
-using System.Windows.Controls;
+//using System.Windows.Controls;
 
 using System.Text.RegularExpressions;
 
@@ -1087,14 +1087,14 @@ namespace BAModel
         public string Right { get; set; }
         public string Bottom { get; set; }
 
-        public Thickness GetMarginValues()
-        {
-            double left = Convert.ToDouble(Left);
-            double top = Convert.ToDouble(Top);
-            double right = Convert.ToDouble(Right);
-            double bottom = Convert.ToDouble(Bottom);
-            return new Thickness(left, top, right, bottom);
-        }
+//        public Thickness GetMarginValues()
+//        {
+//            double left = Convert.ToDouble(Left);
+//            double top = Convert.ToDouble(Top);
+//            double right = Convert.ToDouble(Right);
+//            double bottom = Convert.ToDouble(Bottom);
+//            return new Thickness(left, top, right, bottom);
+//        }
     }
 
     public class BSCommand

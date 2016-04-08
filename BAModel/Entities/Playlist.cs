@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows.Media;
+//using System.Windows.Media;
 
 namespace BAModel
 {
@@ -51,15 +51,15 @@ namespace BAModel
             }
         }
 
-        virtual public ImageSource Thumbnail
-        {
-            get
-            {
-                if (Items.Count == 0) return null;
-                PlaylistItem playlistItem = Items[0];
-                return playlistItem.Thumbnail;
-            }
-        }
+//        virtual public ImageSource Thumbnail
+//        {
+//            get
+//            {
+//                if (Items.Count == 0) return null;
+//                PlaylistItem playlistItem = Items[0];
+//                return playlistItem.Thumbnail;
+//            }
+//        }
 
         abstract public bool IsEqual(Object obj);
 

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+//using System.Windows.Media;
+//using System.Windows.Media.Imaging;
 using System.ComponentModel;
 using System.Xml;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Shapes;
+//using System.Windows.Controls;
+//using System.Windows.Data;
+//using System.Windows.Shapes;
 using System.Diagnostics;
 
 namespace BAModel
@@ -25,16 +25,16 @@ namespace BAModel
         private List<BrightSignCmd> _brightSignExitCmds = new List<BrightSignCmd>();
         private string _notes = String.Empty;
 
-        private StackPanel _stackPanel;
-        private Border _mediaStateBorder;
-        private Border _idBorder;
-        private Line _idLine;
-        private TextBlock _idTextBlock;
-        private Image _imgHome = null;
+//        private StackPanel _stackPanel;
+//        private Border _mediaStateBorder;
+//        private Border _idBorder;
+//        private Line _idLine;
+//        private TextBlock _idTextBlock;
+//        private Image _imgHome = null;
 
-        private Image _imgCurrentMediaState = null;
+//        private Image _imgCurrentMediaState = null;
 
-        private System.Windows.Rect _rect = new Rect(0, 0, 0, 0);
+//        private System.Windows.Rect _rect = new Rect(0, 0, 0, 0);
 
         string _fileName = "";
 
@@ -43,7 +43,7 @@ namespace BAModel
         private double thumbWidth = 116;
         private double thumbHeight = 99;
 
-        private Point _anchorPosition;
+//        private Point _anchorPosition;
 
         // the following constructor is only used for publishing - it does not deal with graphics
         // HACK HACK HACK - note the swapping of the parameters vs. one of the constructors below
@@ -55,36 +55,36 @@ namespace BAModel
         }
 
 
-        public MediaState(string name, MediaPlaylistItem mediaPlaylistItem, Point position, int id)
-        {
-            _name = name;
-            _mediaPlaylistItem = mediaPlaylistItem;
-            FileName = mediaPlaylistItem.FileName;
-            ID = id;
+//        public MediaState(string name, MediaPlaylistItem mediaPlaylistItem, Point position, int id)
+//        {
+//            _name = name;
+//            _mediaPlaylistItem = mediaPlaylistItem;
+//            FileName = mediaPlaylistItem.FileName;
+//            ID = id;
+//
+//            CreateMediaStateGraphics(position.X - thumbWidth / 2, position.Y - thumbHeight / 2);
+//        }
 
-            CreateMediaStateGraphics(position.X - thumbWidth / 2, position.Y - thumbHeight / 2);
-        }
-
-        public MediaState(string name, MediaPlaylistItem mediaPlaylistItem, System.Windows.Rect rect, int id)
-        {
-            _name = name;
-            _mediaPlaylistItem = mediaPlaylistItem;
-            FileName = mediaPlaylistItem.FileName;
-            ID = id;
-
-            _rect = rect;
-
-            CreateMediaStateGraphics(rect.X, rect.Y);
-        }
+//        public MediaState(string name, MediaPlaylistItem mediaPlaylistItem, System.Windows.Rect rect, int id)
+//        {
+//            _name = name;
+//            _mediaPlaylistItem = mediaPlaylistItem;
+//            FileName = mediaPlaylistItem.FileName;
+//            ID = id;
+//
+//            _rect = rect;
+//
+//            CreateMediaStateGraphics(rect.X, rect.Y);
+//        }
 
         // this is really only used for determining if the MediaState has changed when closing the project
-        private MediaState(string name, int id, MediaPlaylistItem mediaPlaylistItem, Rect rect)
-        {
-            _name = name;
-            _mediaPlaylistItem = (MediaPlaylistItem)mediaPlaylistItem.Clone();
-            _rect = rect;
-            ID = id;
-        }
+//        private MediaState(string name, int id, MediaPlaylistItem mediaPlaylistItem, Rect rect)
+//        {
+//            _name = name;
+//            _mediaPlaylistItem = (MediaPlaylistItem)mediaPlaylistItem.Clone();
+//            _rect = rect;
+//            ID = id;
+//        }
 
         public MediaState CloneForComparison()
         {
@@ -158,302 +158,302 @@ namespace BAModel
             }
         }
 
-        public void AddGraphicsToCanvas(Canvas canvas)
-        {
-            canvas.Children.Add(StackPanel);
-            canvas.Children.Add(IDBorder);
-            canvas.Children.Add(IDLine);
+//        public void AddGraphicsToCanvas(Canvas canvas)
+//        {
+//            canvas.Children.Add(StackPanel);
+//            canvas.Children.Add(IDBorder);
+//            canvas.Children.Add(IDLine);
+//
+//            UpdateCanvasSize(canvas);
+//        }
 
-            UpdateCanvasSize(canvas);
-        }
+//        private void UpdateCanvasSize(Canvas canvas)
+//        {
+//            double x = (double)StackPanel.GetValue(Canvas.LeftProperty);
+//            double y = (double)StackPanel.GetValue(Canvas.TopProperty);
+//
+//            double minimumX = x + 200;
+//            if (minimumX > canvas.Width)
+//            {
+//                canvas.Width = minimumX;
+//            }
+//
+//            double minimumY = y + 200;
+//            if (minimumY > canvas.Height)
+//            {
+//                canvas.Height = minimumY;
+//            }
+//
+//        }
 
-        private void UpdateCanvasSize(Canvas canvas)
-        {
-            double x = (double)StackPanel.GetValue(Canvas.LeftProperty);
-            double y = (double)StackPanel.GetValue(Canvas.TopProperty);
+//        public void RemoveAllGraphics(Canvas canvas)
+//        {
+//            if (StackPanel != null)
+//            {
+//                canvas.Children.Remove(StackPanel);
+//            }
+//            if (IDBorder != null)
+//            {
+//                canvas.Children.Remove(IDBorder);
+//            }
+//            if (IDLine != null)
+//            {
+//                canvas.Children.Remove(IDLine);
+//            }
+//        }
 
-            double minimumX = x + 200;
-            if (minimumX > canvas.Width)
-            {
-                canvas.Width = minimumX;
-            }
+//        public StackPanel CreateToolTip()
+//        {
+//            StackPanel spMediaState = new StackPanel();
+//            spMediaState.Orientation = Orientation.Vertical;
+//
+//            // create button
+//            Button btn = new Button();
+//
+//            // create border
+//            Border b = new Border();
+//            b = new Border();
+//            b.BorderBrush = new SolidColorBrush(System.Windows.Media.Color.FromArgb(0xFF, 0xCB, 0xCB, 0xCB));
+//            b.BorderThickness = new Thickness(1);
+//            b.CornerRadius = new CornerRadius(2);
+//            b.MaxWidth = 110;
+//            b.MinWidth = 110;
+//            b.MinHeight = 93;
+//            b.Background = Brushes.White;
+//
+//            // create image
+//            Image imgCurrentMediaState = new Image();
+//            imgCurrentMediaState.Height = 70;
+//            imgCurrentMediaState.Width = 100;
+//            imgCurrentMediaState.Stretch = Stretch.Uniform;
+//            //imgCurrentMediaState.Source = _mediaPlaylistItem.Thumbnail;
+//            Binding thumbnailBinding = new Binding("Thumbnail");
+//            thumbnailBinding.Source = _mediaPlaylistItem;
+//            imgCurrentMediaState.SetBinding(Image.SourceProperty, thumbnailBinding);
+//
+//            // create label
+//            TextBlock lblMediaState = new TextBlock();
+//            lblMediaState.HorizontalAlignment = HorizontalAlignment.Center;
+//            lblMediaState.FontSize = 10;
+//            //lblMediaState.Text = _mediaPlaylistItem.FileName;
+//            Binding nameTextBinding = new Binding("Name");
+//            nameTextBinding.Source = this;
+//            lblMediaState.SetBinding(TextBlock.TextProperty, nameTextBinding);
+//
+//            // create stack panel container
+//            StackPanel sp = new StackPanel();
+//            sp.Orientation = Orientation.Vertical;
+//            sp.HorizontalAlignment = HorizontalAlignment.Center;
+//
+//            sp.Children.Add(imgCurrentMediaState);
+//            sp.Children.Add(lblMediaState);
+//
+//            b.Child = sp;
+//
+//            btn.Content = b;
+//
+//            spMediaState.Children.Add(btn);
+//
+//            return spMediaState;
+//        }
 
-            double minimumY = y + 200;
-            if (minimumY > canvas.Height)
-            {
-                canvas.Height = minimumY;
-            }
+//        public void SetMediaStateGraphicsBinding()
+//        {
+//            Binding thumbnailBinding = new Binding("Thumbnail");
+//            thumbnailBinding.Source = _mediaPlaylistItem;
+//            _imgCurrentMediaState.SetBinding(Image.SourceProperty, thumbnailBinding);
+//        }
 
-        }
+//        private void CreateMediaStateGraphics(double x, double y)
+//        {
+//            ToolTip tt = new ToolTip();
+//            Binding ttBinding = new Binding("NameAndNotes");
+//            ttBinding.Source = this;
+//            tt.SetBinding(ToolTip.ContentProperty, ttBinding);
+//
+//            _stackPanel = new StackPanel();
+//            _stackPanel.Orientation = Orientation.Vertical;
+//            _stackPanel.SetValue(Canvas.LeftProperty, x);
+//            _stackPanel.SetValue(Canvas.TopProperty, y);
+//
+//            _stackPanel.ToolTip = tt;
+//
+//            // create button
+//            Button btn = new Button();
+//
+//            // create border
+//            _mediaStateBorder = new Border();
+//            _mediaStateBorder.BorderBrush = new SolidColorBrush(System.Windows.Media.Color.FromArgb(0xFF, 0xCB, 0xCB, 0xCB));
+//            _mediaStateBorder.BorderThickness = new Thickness(1);
+//            _mediaStateBorder.CornerRadius = new CornerRadius(2);
+//            _mediaStateBorder.MaxWidth = 110;
+//            _mediaStateBorder.MinWidth = 110;
+//            _mediaStateBorder.MinHeight = 93;
+//            _mediaStateBorder.Background = Brushes.White;
+//
+//            // create image
+//            _imgCurrentMediaState = new Image();
+//            _imgCurrentMediaState.Height = 70;
+//            _imgCurrentMediaState.Width = 100;
+//            _imgCurrentMediaState.Stretch = Stretch.Uniform;
+//            SetMediaStateGraphicsBinding();
+//
+//            // create label
+//            TextBlock lblMediaState = new TextBlock();
+//            lblMediaState.HorizontalAlignment = HorizontalAlignment.Center;
+//            lblMediaState.FontSize = 10;
+//            //lblMediaState.Text = _mediaPlaylistItem.FileName;
+//            Binding nameTextBinding = new Binding("Name");
+//            nameTextBinding.Source = this;
+//            lblMediaState.SetBinding(TextBlock.TextProperty, nameTextBinding);
+//
+//            // create stack panel container
+//            StackPanel sp = new StackPanel();
+//            sp.Orientation = Orientation.Vertical;
+//            sp.HorizontalAlignment = HorizontalAlignment.Center;
+//
+//            sp.Children.Add(_imgCurrentMediaState);
+//            sp.Children.Add(lblMediaState);
+//
+//            ContextMenu cm = new ContextMenu();
+//            cm.Opened += MediaStateContextMenu_Opened;
+//
+//            MenuItem miCopy = new MenuItem();
+//            miCopy.Header = "Copy";
+//            miCopy.Name = "miCopy";
+//            miCopy.Click += new RoutedEventHandler(miCopy_Click);
+//            cm.Items.Add(miCopy);
+//
+//            MenuItem miPaste = new MenuItem();
+//            miPaste.Header = "Paste";
+//            miPaste.Name = "miPaste";
+//            miPaste.Click += new RoutedEventHandler(miPaste_Click);
+//            cm.Items.Add(miPaste);
+//
+//            MenuItem mi = new MenuItem();
+//            mi.Header = BrightAuthorUtils.GetLocalizedString("Edit");
+//            mi.Name = "miEdit";
+//            mi.Command = ApplicationCommands.EditPlaylistItem;
+//            cm.Items.Add(mi);
+//
+//            if (MediaPlaylistItem != null && MediaPlaylistItem is SuperStatePlaylistItem)
+//            {
+//                MenuItem miExpandSuperState = new MenuItem();
+//                miExpandSuperState.Header = "Expand";
+//                miExpandSuperState.Name = "miExpand";
+//                miExpandSuperState.Click += new RoutedEventHandler(miExpandSuperState_Click);
+//                cm.Items.Add(miExpandSuperState);
+//            }
+//
+//            MenuItem miExport = new MenuItem();
+//            miExport.Header = "Export";
+//            miExport.Name = "miExport";
+//            miExport.Click += new RoutedEventHandler(miExport_Click);
+//            cm.Items.Add(miExport);
+//
+//            _stackPanel.ContextMenu = cm;
+//
+//            _mediaStateBorder.Child = sp;
+//
+//            btn.Content = _mediaStateBorder;
+//
+//            _stackPanel.Children.Add(btn);
+//
+//            // label
+//            _idTextBlock = new TextBlock();
+//            _idTextBlock.Text = ID.ToString();
+//            _idTextBlock.Padding = new Thickness(5);
+//            _idTextBlock.MinHeight = 24;
+//            _idTextBlock.MinWidth = 24;
+//            _idTextBlock.TextAlignment = TextAlignment.Center;
+//            _idTextBlock.HorizontalAlignment = HorizontalAlignment.Center;
+//
+//            _idBorder = new Border();
+//            SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+//            mySolidColorBrush.Color = Color.FromArgb(255, 225, 226, 231);
+//            _idBorder.Background = mySolidColorBrush;
+//            _idBorder.BorderThickness = new Thickness(2);
+//            _idBorder.CornerRadius = new CornerRadius(16);
+//            _idBorder.Child = _idTextBlock;
+//            _idBorder.SetValue(Canvas.LeftProperty, x - 36);
+//            _idBorder.SetValue(Canvas.TopProperty, y + 10);
+//            /*
+//            ToolTip tt = new ToolTip();
+//            //tt.Content = Name;
+//            StackPanel spThumb = CreateMediaStateStackPanel();
+//            tt.Content = spThumb;
+//            _idBorder.ToolTip = tt;
+//            */
+//
+//            _idLine = new Line();
+//            _idLine.X1 = x;
+//            _idLine.Y1 = y + 10 + 16;
+//            _idLine.X2 = x - 10;
+//            _idLine.Y2 = y + 10 + 16;
+//            _idLine.Stroke = Brushes.Black;
+//            _idLine.StrokeThickness = 1;
+//        }
 
-        public void RemoveAllGraphics(Canvas canvas)
-        {
-            if (StackPanel != null)
-            {
-                canvas.Children.Remove(StackPanel);
-            }
-            if (IDBorder != null)
-            {
-                canvas.Children.Remove(IDBorder);
-            }
-            if (IDLine != null)
-            {
-                canvas.Children.Remove(IDLine);
-            }
-        }
+//        void miCopy_Click(object sender, RoutedEventArgs e)
+//        {
+//            Window1 mainWindow = Window1.GetInstance();
+//            mainWindow.CopySelectedStates();
+//        }
+//
+//        void miPaste_Click(object sender, RoutedEventArgs e)
+//        {
+//            Window1 mainWindow = Window1.GetInstance();
+//            mainWindow.ExecutePaste();
+//        }
+//
+//        void miExport_Click(object sender, RoutedEventArgs e)
+//        {
+//            Window1 mainWindow = Window1.GetInstance();
+//            mainWindow.ExportSelectedStates();
+//        }
+//
+//        void miExpandSuperState_Click(object sender, RoutedEventArgs e)
+//        {
+//            Window1 mainWindow = Window1.GetInstance();
+//            mainWindow.DisplayPlaylist_ExpandSuperState(MediaPlaylistItem);
+//        }
 
-        public StackPanel CreateToolTip()
-        {
-            StackPanel spMediaState = new StackPanel();
-            spMediaState.Orientation = Orientation.Vertical;
+//        public void ShowIDGraphics()
+//        {
+//            _idBorder.Visibility = Visibility.Visible;
+//            _idLine.Visibility = Visibility.Visible;
+//        }
 
-            // create button
-            Button btn = new Button();
+//        public void HideIDGraphics()
+//        {
+//            _idBorder.Visibility = Visibility.Hidden;
+//            _idLine.Visibility = Visibility.Hidden;
+//        }
 
-            // create border
-            Border b = new Border();
-            b = new Border();
-            b.BorderBrush = new SolidColorBrush(System.Windows.Media.Color.FromArgb(0xFF, 0xCB, 0xCB, 0xCB));
-            b.BorderThickness = new Thickness(1);
-            b.CornerRadius = new CornerRadius(2);
-            b.MaxWidth = 110;
-            b.MinWidth = 110;
-            b.MinHeight = 93;
-            b.Background = Brushes.White;
-
-            // create image
-            Image imgCurrentMediaState = new Image();
-            imgCurrentMediaState.Height = 70;
-            imgCurrentMediaState.Width = 100;
-            imgCurrentMediaState.Stretch = Stretch.Uniform;
-            //imgCurrentMediaState.Source = _mediaPlaylistItem.Thumbnail;
-            Binding thumbnailBinding = new Binding("Thumbnail");
-            thumbnailBinding.Source = _mediaPlaylistItem;
-            imgCurrentMediaState.SetBinding(Image.SourceProperty, thumbnailBinding);
-
-            // create label
-            TextBlock lblMediaState = new TextBlock();
-            lblMediaState.HorizontalAlignment = HorizontalAlignment.Center;
-            lblMediaState.FontSize = 10;
-            //lblMediaState.Text = _mediaPlaylistItem.FileName;
-            Binding nameTextBinding = new Binding("Name");
-            nameTextBinding.Source = this;
-            lblMediaState.SetBinding(TextBlock.TextProperty, nameTextBinding);
-
-            // create stack panel container
-            StackPanel sp = new StackPanel();
-            sp.Orientation = Orientation.Vertical;
-            sp.HorizontalAlignment = HorizontalAlignment.Center;
-
-            sp.Children.Add(imgCurrentMediaState);
-            sp.Children.Add(lblMediaState);
-
-            b.Child = sp;
-
-            btn.Content = b;
-
-            spMediaState.Children.Add(btn);
-
-            return spMediaState;
-        }
-
-        public void SetMediaStateGraphicsBinding()
-        {
-            Binding thumbnailBinding = new Binding("Thumbnail");
-            thumbnailBinding.Source = _mediaPlaylistItem;
-            _imgCurrentMediaState.SetBinding(Image.SourceProperty, thumbnailBinding);
-        }
-
-        private void CreateMediaStateGraphics(double x, double y)
-        {
-            ToolTip tt = new ToolTip();
-            Binding ttBinding = new Binding("NameAndNotes");
-            ttBinding.Source = this;
-            tt.SetBinding(ToolTip.ContentProperty, ttBinding);
-
-            _stackPanel = new StackPanel();
-            _stackPanel.Orientation = Orientation.Vertical;
-            _stackPanel.SetValue(Canvas.LeftProperty, x);
-            _stackPanel.SetValue(Canvas.TopProperty, y);
-
-            _stackPanel.ToolTip = tt;
-
-            // create button
-            Button btn = new Button();
-
-            // create border
-            _mediaStateBorder = new Border();
-            _mediaStateBorder.BorderBrush = new SolidColorBrush(System.Windows.Media.Color.FromArgb(0xFF, 0xCB, 0xCB, 0xCB));
-            _mediaStateBorder.BorderThickness = new Thickness(1);
-            _mediaStateBorder.CornerRadius = new CornerRadius(2);
-            _mediaStateBorder.MaxWidth = 110;
-            _mediaStateBorder.MinWidth = 110;
-            _mediaStateBorder.MinHeight = 93;
-            _mediaStateBorder.Background = Brushes.White;
-
-            // create image
-            _imgCurrentMediaState = new Image();
-            _imgCurrentMediaState.Height = 70;
-            _imgCurrentMediaState.Width = 100;
-            _imgCurrentMediaState.Stretch = Stretch.Uniform;
-            SetMediaStateGraphicsBinding();
-
-            // create label
-            TextBlock lblMediaState = new TextBlock();
-            lblMediaState.HorizontalAlignment = HorizontalAlignment.Center;
-            lblMediaState.FontSize = 10;
-            //lblMediaState.Text = _mediaPlaylistItem.FileName;
-            Binding nameTextBinding = new Binding("Name");
-            nameTextBinding.Source = this;
-            lblMediaState.SetBinding(TextBlock.TextProperty, nameTextBinding);
-
-            // create stack panel container
-            StackPanel sp = new StackPanel();
-            sp.Orientation = Orientation.Vertical;
-            sp.HorizontalAlignment = HorizontalAlignment.Center;
-
-            sp.Children.Add(_imgCurrentMediaState);
-            sp.Children.Add(lblMediaState);
-
-            ContextMenu cm = new ContextMenu();
-            cm.Opened += MediaStateContextMenu_Opened;
-
-            MenuItem miCopy = new MenuItem();
-            miCopy.Header = "Copy";
-            miCopy.Name = "miCopy";
-            miCopy.Click += new RoutedEventHandler(miCopy_Click);
-            cm.Items.Add(miCopy);
-
-            MenuItem miPaste = new MenuItem();
-            miPaste.Header = "Paste";
-            miPaste.Name = "miPaste";
-            miPaste.Click += new RoutedEventHandler(miPaste_Click);
-            cm.Items.Add(miPaste);
-
-            MenuItem mi = new MenuItem();
-            mi.Header = BrightAuthorUtils.GetLocalizedString("Edit");
-            mi.Name = "miEdit";
-            mi.Command = ApplicationCommands.EditPlaylistItem;
-            cm.Items.Add(mi);
-
-            if (MediaPlaylistItem != null && MediaPlaylistItem is SuperStatePlaylistItem)
-            {
-                MenuItem miExpandSuperState = new MenuItem();
-                miExpandSuperState.Header = "Expand";
-                miExpandSuperState.Name = "miExpand";
-                miExpandSuperState.Click += new RoutedEventHandler(miExpandSuperState_Click);
-                cm.Items.Add(miExpandSuperState);
-            }
-
-            MenuItem miExport = new MenuItem();
-            miExport.Header = "Export";
-            miExport.Name = "miExport";
-            miExport.Click += new RoutedEventHandler(miExport_Click);
-            cm.Items.Add(miExport);
-
-            _stackPanel.ContextMenu = cm;
-
-            _mediaStateBorder.Child = sp;
-
-            btn.Content = _mediaStateBorder;
-
-            _stackPanel.Children.Add(btn);
-
-            // label
-            _idTextBlock = new TextBlock();
-            _idTextBlock.Text = ID.ToString();
-            _idTextBlock.Padding = new Thickness(5);
-            _idTextBlock.MinHeight = 24;
-            _idTextBlock.MinWidth = 24;
-            _idTextBlock.TextAlignment = TextAlignment.Center;
-            _idTextBlock.HorizontalAlignment = HorizontalAlignment.Center;
-
-            _idBorder = new Border();
-            SolidColorBrush mySolidColorBrush = new SolidColorBrush();
-            mySolidColorBrush.Color = Color.FromArgb(255, 225, 226, 231);
-            _idBorder.Background = mySolidColorBrush;
-            _idBorder.BorderThickness = new Thickness(2);
-            _idBorder.CornerRadius = new CornerRadius(16);
-            _idBorder.Child = _idTextBlock;
-            _idBorder.SetValue(Canvas.LeftProperty, x - 36);
-            _idBorder.SetValue(Canvas.TopProperty, y + 10);
-            /*
-            ToolTip tt = new ToolTip();
-            //tt.Content = Name;
-            StackPanel spThumb = CreateMediaStateStackPanel();
-            tt.Content = spThumb;
-            _idBorder.ToolTip = tt;
-            */
-
-            _idLine = new Line();
-            _idLine.X1 = x;
-            _idLine.Y1 = y + 10 + 16;
-            _idLine.X2 = x - 10;
-            _idLine.Y2 = y + 10 + 16;
-            _idLine.Stroke = Brushes.Black;
-            _idLine.StrokeThickness = 1;
-        }
-
-        void miCopy_Click(object sender, RoutedEventArgs e)
-        {
-            Window1 mainWindow = Window1.GetInstance();
-            mainWindow.CopySelectedStates();
-        }
-
-        void miPaste_Click(object sender, RoutedEventArgs e)
-        {
-            Window1 mainWindow = Window1.GetInstance();
-            mainWindow.ExecutePaste();
-        }
-
-        void miExport_Click(object sender, RoutedEventArgs e)
-        {
-            Window1 mainWindow = Window1.GetInstance();
-            mainWindow.ExportSelectedStates();
-        }
-
-        void miExpandSuperState_Click(object sender, RoutedEventArgs e)
-        {
-            Window1 mainWindow = Window1.GetInstance();
-            mainWindow.DisplayPlaylist_ExpandSuperState(MediaPlaylistItem);
-        }
-
-        public void ShowIDGraphics()
-        {
-            _idBorder.Visibility = Visibility.Visible;
-            _idLine.Visibility = Visibility.Visible;
-        }
-
-        public void HideIDGraphics()
-        {
-            _idBorder.Visibility = Visibility.Hidden;
-            _idLine.Visibility = Visibility.Hidden;
-        }
-
-        public void MoveGraphics(Canvas canvas, double xNew, double yNew)
-        {
-            Object o = _stackPanel.GetValue(Canvas.LeftProperty);
-            double xCurrent = (double)o;
-
-            o = _stackPanel.GetValue(Canvas.TopProperty);
-            double yCurrent = (double)o;
-
-            double xDelta = xNew - xCurrent;
-            double yDelta = yNew - yCurrent;
-
-            this.StackPanel.SetValue(Canvas.LeftProperty, xNew);
-            this.StackPanel.SetValue(Canvas.TopProperty, yNew);
-
-            _idBorder.SetValue(Canvas.LeftProperty, xNew - 36);
-            _idBorder.SetValue(Canvas.TopProperty, yNew + 10);
-
-            _idLine.X1 = xNew;
-            _idLine.Y1 = yNew + 10 + 16;
-            _idLine.X2 = xNew - 10;
-            _idLine.Y2 = yNew + 10 + 16;
-
-            UpdateCanvasSize(canvas);
-        }
+//        public void MoveGraphics(Canvas canvas, double xNew, double yNew)
+//        {
+//            Object o = _stackPanel.GetValue(Canvas.LeftProperty);
+//            double xCurrent = (double)o;
+//
+//            o = _stackPanel.GetValue(Canvas.TopProperty);
+//            double yCurrent = (double)o;
+//
+//            double xDelta = xNew - xCurrent;
+//            double yDelta = yNew - yCurrent;
+//
+//            this.StackPanel.SetValue(Canvas.LeftProperty, xNew);
+//            this.StackPanel.SetValue(Canvas.TopProperty, yNew);
+//
+//            _idBorder.SetValue(Canvas.LeftProperty, xNew - 36);
+//            _idBorder.SetValue(Canvas.TopProperty, yNew + 10);
+//
+//            _idLine.X1 = xNew;
+//            _idLine.Y1 = yNew + 10 + 16;
+//            _idLine.X2 = xNew - 10;
+//            _idLine.Y2 = yNew + 10 + 16;
+//
+//            UpdateCanvasSize(canvas);
+//        }
 
         public bool InitialState
         {
@@ -478,82 +478,82 @@ namespace BAModel
             }
         }
 
-        public StackPanel StackPanel
-        {
-            get { return _stackPanel; }
-        }
-
-        public Border IDBorder
-        {
-            get { return _idBorder; }
-        }
-
-        public Line IDLine
-        {
-            get { return _idLine; }
-        }
-
-        public TextBlock IDTextBlock
-        {
-            get { return _idTextBlock; }
-        }
-
-        public Point AnchorPosition
-        {
-            get { return _anchorPosition; }
-            set { _anchorPosition = value; }
-        }
+//        public StackPanel StackPanel
+//        {
+//            get { return _stackPanel; }
+//        }
+//
+//        public Border IDBorder
+//        {
+//            get { return _idBorder; }
+//        }
+//
+//        public Line IDLine
+//        {
+//            get { return _idLine; }
+//        }
+//
+//        public TextBlock IDTextBlock
+//        {
+//            get { return _idTextBlock; }
+//        }
+//
+//        public Point AnchorPosition
+//        {
+//            get { return _anchorPosition; }
+//            set { _anchorPosition = value; }
+//        }
 
         public void ClearRect()
         {
             _rect.Width = 0;
         }
 
-        public System.Windows.Rect Rect
-        {
-            get
-            {
-                if (_rect.Width == 0)
-                {
-                    Object o = _stackPanel.GetValue(Canvas.LeftProperty);
-                    double left = (double)o;
-
-                    o = _stackPanel.GetValue(Canvas.TopProperty);
-                    double top = (double)o;
-
-                    System.Windows.Rect rect = new System.Windows.Rect(left, top, _stackPanel.ActualWidth, _stackPanel.ActualHeight);
-                    return rect;
-                }
-                else
-                {
-                    return _rect;
-                }
-            }
-
-            // Caution: use setter only in cases where layout is not active (such as initial layout of a converted non-interactive playlist)
-            // TODO: layout and graphic info should be in a separate MediaStateInteractiveViewController class
-            set
-            {
-                _rect = value;
-                if (_stackPanel != null)
-                {
-                    _stackPanel.SetValue(Canvas.LeftProperty, _rect.X);
-                    _stackPanel.SetValue(Canvas.TopProperty, _rect.Y);
-                }
-                if (_idBorder != null)
-                {
-                    _idBorder.SetValue(Canvas.LeftProperty, _rect.X - 36);
-                    _idBorder.SetValue(Canvas.TopProperty, _rect.Y + 10);
-                }
-                if (_idLine != null)
-                {
-                    _idLine.X1 = _rect.X;
-                    _idLine.Y1 = _rect.Y + 10 + 16;
-                    _idLine.X2 = _rect.X - 10;
-                    _idLine.Y2 = _rect.Y + 10 + 16;
-                }
-            }
-        }
+//        public System.Windows.Rect Rect
+//        {
+//            get
+//            {
+//                if (_rect.Width == 0)
+//                {
+//                    Object o = _stackPanel.GetValue(Canvas.LeftProperty);
+//                    double left = (double)o;
+//
+//                    o = _stackPanel.GetValue(Canvas.TopProperty);
+//                    double top = (double)o;
+//
+//                    System.Windows.Rect rect = new System.Windows.Rect(left, top, _stackPanel.ActualWidth, _stackPanel.ActualHeight);
+//                    return rect;
+//                }
+//                else
+//                {
+//                    return _rect;
+//                }
+//            }
+//
+//            // Caution: use setter only in cases where layout is not active (such as initial layout of a converted non-interactive playlist)
+//            // TODO: layout and graphic info should be in a separate MediaStateInteractiveViewController class
+//            set
+//            {
+//                _rect = value;
+//                if (_stackPanel != null)
+//                {
+//                    _stackPanel.SetValue(Canvas.LeftProperty, _rect.X);
+//                    _stackPanel.SetValue(Canvas.TopProperty, _rect.Y);
+//                }
+//                if (_idBorder != null)
+//                {
+//                    _idBorder.SetValue(Canvas.LeftProperty, _rect.X - 36);
+//                    _idBorder.SetValue(Canvas.TopProperty, _rect.Y + 10);
+//                }
+//                if (_idLine != null)
+//                {
+//                    _idLine.X1 = _rect.X;
+//                    _idLine.Y1 = _rect.Y + 10 + 16;
+//                    _idLine.X2 = _rect.X - 10;
+//                    _idLine.Y2 = _rect.Y + 10 + 16;
+//                }
+//            }
+//        }
 
         public string Name
         {
@@ -1310,34 +1310,34 @@ namespace BAModel
             return false;
         }
 
-        private void MediaStateContextMenu_Opened(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Window1 mainWindow = Window1.GetInstance();
-                mainWindow.SelectMediaStateViaRightClick(this);
-
-                int numSelectedStates = mainWindow.GetNumberOfSelectedInteractiveStates();
-
-                ContextMenu cm = (ContextMenu)sender;
-
-                foreach (MenuItem mi in cm.Items)
-                {
-                    if ((mi.Name == "miExport") || (mi.Name == "miCopy"))
-                    {
-                        mi.IsEnabled = numSelectedStates > 0;
-                    }
-                    if (mi.Name == "miPaste")
-                    {
-                        mi.IsEnabled = mainWindow.EnablePaste();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Trace.WriteLine("Exception in MediaStateContextMenu_Opened");
-                App.myTraceListener.Assert(false, ex.ToString());
-            }
-        }
+//        private void MediaStateContextMenu_Opened(object sender, RoutedEventArgs e)
+//        {
+//            try
+//            {
+//                Window1 mainWindow = Window1.GetInstance();
+//                mainWindow.SelectMediaStateViaRightClick(this);
+//
+//                int numSelectedStates = mainWindow.GetNumberOfSelectedInteractiveStates();
+//
+//                ContextMenu cm = (ContextMenu)sender;
+//
+//                foreach (MenuItem mi in cm.Items)
+//                {
+//                    if ((mi.Name == "miExport") || (mi.Name == "miCopy"))
+//                    {
+//                        mi.IsEnabled = numSelectedStates > 0;
+//                    }
+//                    if (mi.Name == "miPaste")
+//                    {
+//                        mi.IsEnabled = mainWindow.EnablePaste();
+//                    }
+//                }
+//            }
+//            catch (Exception ex)
+//            {
+//                Trace.WriteLine("Exception in MediaStateContextMenu_Opened");
+//                App.myTraceListener.Assert(false, ex.ToString());
+//            }
+//        }
     }
 }

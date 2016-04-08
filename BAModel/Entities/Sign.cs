@@ -20,6 +20,13 @@ namespace BAModel
 			PortraitBottomOnRight
 		}
 
+		private static Sign _currentSign = null;
+		public static Sign CurrentSign
+		{
+			get { return _currentSign; }
+			set { _currentSign = value; }
+		}
+
 
 		public string Name { get; set; }
 		public bool IsMosaic { get; set; }

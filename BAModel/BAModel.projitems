@@ -30,6 +30,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Transition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Events\SimpleUserEvent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PlaylistItem\PlaylistItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlaylistItem\MediaPlaylistItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\ConditionalTarget.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\BrightSignCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\BrightSignModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Entities\" />
