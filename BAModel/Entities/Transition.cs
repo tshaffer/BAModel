@@ -56,17 +56,17 @@ namespace BAModel
             _bsEvent = new BSEvent();
             TargetMediaState = null;
 
-            _imgIcon = new Image();
-            _imgIcon.Width = 24;
-            _imgIcon.Height = 24;
-
-            _imgIconSelected = new Image();
-            _imgIconSelected.Width = 24;
-            _imgIconSelected.Height = 24;
-
-            _image = new Image();
-            _image.Width = 24;
-            _image.Height = 24;
+//            _imgIcon = new Image();
+//            _imgIcon.Width = 24;
+//            _imgIcon.Height = 24;
+//
+//            _imgIconSelected = new Image();
+//            _imgIconSelected.Width = 24;
+//            _imgIconSelected.Height = 24;
+//
+//            _image = new Image();
+//            _image.Width = 24;
+//            _image.Height = 24;
         }
 
         // used for publishing only - no graphics are created
@@ -91,17 +91,17 @@ namespace BAModel
             DisplayMode = displayMode;
             LabelLocation = labelLocation;
 
-            _imgIcon = new Image();
-            _imgIcon.Width = 24;
-            _imgIcon.Height = 24;
-
-            _imgIconSelected = new Image();
-            _imgIconSelected.Width = 24;
-            _imgIconSelected.Height = 24;
-
-            _image = new Image();
-            _image.Width = 24;
-            _image.Height = 24;
+//            _imgIcon = new Image();
+//            _imgIcon.Width = 24;
+//            _imgIcon.Height = 24;
+//
+//            _imgIconSelected = new Image();
+//            _imgIconSelected.Width = 24;
+//            _imgIconSelected.Height = 24;
+//
+//            _image = new Image();
+//            _image.Width = 24;
+//            _image.Height = 24;
         }
 
         private void SetImage()
@@ -110,14 +110,14 @@ namespace BAModel
             string imageResourceSelectedName = "";
             _bsEvent.GetIconResourceNames(ref imageResourceName, ref imageResourceSelectedName);
             
-            Image img = (Image)Application.Current.TryFindResource(imageResourceName);
-            Image imgSelected = (Image)Application.Current.TryFindResource(imageResourceSelectedName);
-
-            if (img != null)
-            {
-                _imgIcon.Source = img.Source;
-                _imgIconSelected.Source = imgSelected.Source;
-            }
+//            Image img = (Image)Application.Current.TryFindResource(imageResourceName);
+//            Image imgSelected = (Image)Application.Current.TryFindResource(imageResourceSelectedName);
+//
+//            if (img != null)
+//            {
+//                _imgIcon.Source = img.Source;
+//                _imgIconSelected.Source = imgSelected.Source;
+//            }
         }
 
         private void CompleteClone(Transition newTransition, Transition existingTransition)
@@ -234,43 +234,43 @@ namespace BAModel
             return true;
         }
 
-        public void ShowAsSelected(bool selected)
-        {
-            if (DisplayMode == "displayLabel")
-            {
-                if (selected)
-                {
-                    // set image background
-                    _line.Stroke = Brushes.Blue;
-                    _line.Fill = Brushes.Blue;
-                    _image.Source = _imgIconSelected.Source;
-                }
-                else
-                {
-                    // set image background
-                    _line.Stroke = Brushes.Black;
-                    _line.Fill = Brushes.Black;
-                    _image.Source = _imgIcon.Source;
-                }
-            }
-            if (DisplayMode == "displayConnectingLine")
-            {
-                if (selected)
-                {
-                    // set image background
-                    _line.Stroke = Brushes.Blue;
-                    _line.Fill = Brushes.Blue;
-                    _image.Source = _imgIconSelected.Source;
-                }
-                else
-                {
-                    // set image background
-                    _line.Stroke = Brushes.Black;
-                    _line.Fill = Brushes.Black;
-                    _image.Source = _imgIcon.Source;
-                }
-            }
-        }
+//        public void ShowAsSelected(bool selected)
+//        {
+//            if (DisplayMode == "displayLabel")
+//            {
+//                if (selected)
+//                {
+//                    // set image background
+//                    _line.Stroke = Brushes.Blue;
+//                    _line.Fill = Brushes.Blue;
+//                    _image.Source = _imgIconSelected.Source;
+//                }
+//                else
+//                {
+//                    // set image background
+//                    _line.Stroke = Brushes.Black;
+//                    _line.Fill = Brushes.Black;
+//                    _image.Source = _imgIcon.Source;
+//                }
+//            }
+//            if (DisplayMode == "displayConnectingLine")
+//            {
+//                if (selected)
+//                {
+//                    // set image background
+//                    _line.Stroke = Brushes.Blue;
+//                    _line.Fill = Brushes.Blue;
+//                    _image.Source = _imgIconSelected.Source;
+//                }
+//                else
+//                {
+//                    // set image background
+//                    _line.Stroke = Brushes.Black;
+//                    _line.Fill = Brushes.Black;
+//                    _image.Source = _imgIcon.Source;
+//                }
+//            }
+//        }
 
 //        public void CreateGraphics(Canvas canvas)
 //        {
@@ -401,60 +401,60 @@ namespace BAModel
 //
 //        }
 
-        public void MoveGraphicsVertically(double newY)
-        {
-            if (_label != null) _label.SetValue(Canvas.TopProperty, newY);
-            _line.Y2 = newY + miniThumbHeight / 2;
-            double y = CorrectYPosition((_line.Y1 + _line.Y2) / 2);
-            _image.SetValue(Canvas.TopProperty, y);
-        }
+//        public void MoveGraphicsVertically(double newY)
+//        {
+//            if (_label != null) _label.SetValue(Canvas.TopProperty, newY);
+//            _line.Y2 = newY + miniThumbHeight / 2;
+//            double y = CorrectYPosition((_line.Y1 + _line.Y2) / 2);
+//            _image.SetValue(Canvas.TopProperty, y);
+//        }
+//
+//        public void MoveGraphicsHorizontally(double newX)
+//        {
+//            if (_label != null) _label.SetValue(Canvas.LeftProperty, newX);
+//            _line.X2 = newX + miniThumbWidth / 2;
+//            double x = CorrectXPosition((_line.X1 + _line.X2) / 2);
+//            _image.SetValue(Canvas.LeftProperty, x);
+//        }
+//
+//        public void SetConnectingLineSourceX(double newX)
+//        {
+//            _line.X1 = newX;
+//            double x = CorrectXPosition((_line.X1 + _line.X2) / 2);
+//            _image.SetValue(Canvas.LeftProperty, x);
+//        }
+//
+//        public void SetConnectingLineDestinationX(double newX)
+//        {
+//            _line.X2 = newX;
+//            double x = CorrectXPosition((_line.X1 + _line.X2) / 2);
+//            _image.SetValue(Canvas.LeftProperty, x);
+//        }
 
-        public void MoveGraphicsHorizontally(double newX)
-        {
-            if (_label != null) _label.SetValue(Canvas.LeftProperty, newX);
-            _line.X2 = newX + miniThumbWidth / 2;
-            double x = CorrectXPosition((_line.X1 + _line.X2) / 2);
-            _image.SetValue(Canvas.LeftProperty, x);
-        }
-
-        public void SetConnectingLineSourceX(double newX)
-        {
-            _line.X1 = newX;
-            double x = CorrectXPosition((_line.X1 + _line.X2) / 2);
-            _image.SetValue(Canvas.LeftProperty, x);
-        }
-
-        public void SetConnectingLineDestinationX(double newX)
-        {
-            _line.X2 = newX;
-            double x = CorrectXPosition((_line.X1 + _line.X2) / 2);
-            _image.SetValue(Canvas.LeftProperty, x);
-        }
-
-        public bool InitialState
-        {
-            set
-            {
-                if (_mediaStateID != null)
-                {
-                    if (value == true)
-                    {
-                        if (_imgHome == null)
-                        {
-                            _imgHome = new Image();
-                            Image img = (Image)Application.Current.TryFindResource("home");
-                            _imgHome.Source = img.Source;
-                        }
-                        _mediaStateID.Child = _imgHome;
-                    }
-                    else
-                    {
-                        _mediaStateID.Child = _mediaStateIDText;
-                        //_mediaStateID.Child = _mediaStateWindow;
-                    }
-                }
-            }
-        }
+//        public bool InitialState
+//        {
+//            set
+//            {
+//                if (_mediaStateID != null)
+//                {
+//                    if (value == true)
+//                    {
+//                        if (_imgHome == null)
+//                        {
+//                            _imgHome = new Image();
+//                            Image img = (Image)Application.Current.TryFindResource("home");
+//                            _imgHome.Source = img.Source;
+//                        }
+//                        _mediaStateID.Child = _imgHome;
+//                    }
+//                    else
+//                    {
+//                        _mediaStateID.Child = _mediaStateIDText;
+//                        //_mediaStateID.Child = _mediaStateWindow;
+//                    }
+//                }
+//            }
+//        }
 
 //        private ArrowLine CreateLine(double x1, double x2, double y1, double y2)
 //        {
@@ -481,26 +481,26 @@ namespace BAModel
             return y -= iconWidth / 2;
         }
 
-        private void CreateEventImage(double x, double y)
-        {
-            SetImage();
-            _image.Source = _imgIcon.Source;
-
-            x = CorrectXPosition(x);
-            _image.SetValue(Canvas.LeftProperty, x);
-            y = CorrectYPosition(y);
-            _image.SetValue(Canvas.TopProperty, y);
-
-            _image.ToolTip = _bsEvent.GetToolTip();
-
-            ContextMenu cm = new ContextMenu();
-            MenuItem mi = new MenuItem();
-            mi.Header = BrightAuthorUtils.GetLocalizedString("Edit");
-            mi.Name = "miEdit";
-            mi.Command = ApplicationCommands.EditPlaylistItem;
-            cm.Items.Add(mi);
-            _image.ContextMenu = cm;
-        }
+//        private void CreateEventImage(double x, double y)
+//        {
+//            SetImage();
+//            _image.Source = _imgIcon.Source;
+//
+//            x = CorrectXPosition(x);
+//            _image.SetValue(Canvas.LeftProperty, x);
+//            y = CorrectYPosition(y);
+//            _image.SetValue(Canvas.TopProperty, y);
+//
+//            _image.ToolTip = _bsEvent.GetToolTip();
+//
+//            ContextMenu cm = new ContextMenu();
+//            MenuItem mi = new MenuItem();
+//            mi.Header = BrightAuthorUtils.GetLocalizedString("Edit");
+//            mi.Name = "miEdit";
+//            mi.Command = ApplicationCommands.EditPlaylistItem;
+//            cm.Items.Add(mi);
+//            _image.ContextMenu = cm;
+//        }
 
 //        private Point GetCurrentPosition(DependencyObject depObj)
 //        {
@@ -515,37 +515,37 @@ namespace BAModel
 //            return new Point(left, top);
 //        }
 
-        public void SetSourceAnchors()
-        {
-            Point p;
+//        public void SetSourceAnchors()
+//        {
+//            Point p;
+//
+//            if (DisplayMode == "displayLabel")
+//            {
+//                p = GetCurrentPosition(_image);
+//                _imageAnchor = p;
+//
+//                _lineStartPointAnchor = new Point(_line.X1, _line.Y1);
+//                _lineEndPointAnchor = new Point(_line.X2, _line.Y2);
+//
+//                if (_label != null)
+//                {
+//                    p = GetCurrentPosition(_label);
+//                    _labelAnchor = p;
+//                }
+//            }
+//            if (DisplayMode == "displayConnectingLine")
+//            {
+//                _lineStartPointAnchor = new Point(_line.X1, _line.Y1);
+//            }
+//        }
 
-            if (DisplayMode == "displayLabel")
-            {
-                p = GetCurrentPosition(_image);
-                _imageAnchor = p;
-
-                _lineStartPointAnchor = new Point(_line.X1, _line.Y1);
-                _lineEndPointAnchor = new Point(_line.X2, _line.Y2);
-
-                if (_label != null)
-                {
-                    p = GetCurrentPosition(_label);
-                    _labelAnchor = p;
-                }
-            }
-            if (DisplayMode == "displayConnectingLine")
-            {
-                _lineStartPointAnchor = new Point(_line.X1, _line.Y1);
-            }
-        }
-
-        public void SetDestinationAnchors()
-        {
-            if (_line != null)
-            {
-                _lineEndPointAnchor = new Point(_line.X2, _line.Y2);
-            }
-        }
+//        public void SetDestinationAnchors()
+//        {
+//            if (_line != null)
+//            {
+//                _lineEndPointAnchor = new Point(_line.X2, _line.Y2);
+//            }
+//        }
 
 //        private void UpdatePosition(DependencyObject depObj, Point anchorPosition, double deltaX, double deltaY)
 //        {
@@ -553,47 +553,47 @@ namespace BAModel
 //            depObj.SetValue(Canvas.TopProperty, anchorPosition.Y + deltaY);
 //        }
 
-        public void UpdateSourcePositions(double deltaX, double deltaY)
-        {
-            if (DisplayMode == "displayLabel")
-            {
-                UpdatePosition(_image, _imageAnchor, deltaX, deltaY);
-                if (_label != null) UpdatePosition(_label, _labelAnchor, deltaX, deltaY);
+//        public void UpdateSourcePositions(double deltaX, double deltaY)
+//        {
+//            if (DisplayMode == "displayLabel")
+//            {
+//                UpdatePosition(_image, _imageAnchor, deltaX, deltaY);
+//                if (_label != null) UpdatePosition(_label, _labelAnchor, deltaX, deltaY);
+//
+//                _line.X1 = _lineStartPointAnchor.X + deltaX;
+//                _line.Y1 = _lineStartPointAnchor.Y + deltaY;
+//                _line.X2 = _lineEndPointAnchor.X + deltaX;
+//                _line.Y2 = _lineEndPointAnchor.Y + deltaY;
+//            }
+//        }
 
-                _line.X1 = _lineStartPointAnchor.X + deltaX;
-                _line.Y1 = _lineStartPointAnchor.Y + deltaY;
-                _line.X2 = _lineEndPointAnchor.X + deltaX;
-                _line.Y2 = _lineEndPointAnchor.Y + deltaY;
-            }
-        }
+//        public void UpdateConnectingLineOut(double deltaX, double deltaY)
+//        {
+//            if (DisplayMode == "displayConnectingLine")
+//            {
+//                _line.X1 = _lineStartPointAnchor.X + deltaX;
+//                _line.Y1 = _lineStartPointAnchor.Y + deltaY;
+//
+//                double x = CorrectXPosition((_line.X1 + _line.X2) / 2);
+//                _image.SetValue(Canvas.LeftProperty, x);
+//                double y = CorrectYPosition((_line.Y1 + _line.Y2) / 2);
+//                _image.SetValue(Canvas.TopProperty, y);
+//            }
+//        }
 
-        public void UpdateConnectingLineOut(double deltaX, double deltaY)
-        {
-            if (DisplayMode == "displayConnectingLine")
-            {
-                _line.X1 = _lineStartPointAnchor.X + deltaX;
-                _line.Y1 = _lineStartPointAnchor.Y + deltaY;
-
-                double x = CorrectXPosition((_line.X1 + _line.X2) / 2);
-                _image.SetValue(Canvas.LeftProperty, x);
-                double y = CorrectYPosition((_line.Y1 + _line.Y2) / 2);
-                _image.SetValue(Canvas.TopProperty, y);
-            }
-        }
-
-        public void UpdateConnectingLineIn(double deltaX, double deltaY)
-        {
-            if (DisplayMode == "displayConnectingLine")
-            {
-                _line.X2 = _lineEndPointAnchor.X + deltaX;
-                _line.Y2 = _lineEndPointAnchor.Y + deltaY;
-
-                double x = CorrectXPosition((_line.X1 + _line.X2) / 2);
-                _image.SetValue(Canvas.LeftProperty, x);
-                double y = CorrectYPosition((_line.Y1 + _line.Y2) / 2);
-                _image.SetValue(Canvas.TopProperty, y);
-            }
-        }
+//        public void UpdateConnectingLineIn(double deltaX, double deltaY)
+//        {
+//            if (DisplayMode == "displayConnectingLine")
+//            {
+//                _line.X2 = _lineEndPointAnchor.X + deltaX;
+//                _line.Y2 = _lineEndPointAnchor.Y + deltaY;
+//
+//                double x = CorrectXPosition((_line.X1 + _line.X2) / 2);
+//                _image.SetValue(Canvas.LeftProperty, x);
+//                double y = CorrectYPosition((_line.Y1 + _line.Y2) / 2);
+//                _image.SetValue(Canvas.TopProperty, y);
+//            }
+//        }
 
         public string SourceMediaStateName
         {
@@ -1135,21 +1135,21 @@ namespace BAModel
             return transitionUserVariables;
         }
 
-        public void UpdateUserDefinedEvents(ObservableCollection<UserDefinedEvent> userDefinedEvents)
-        {
-            if (BSEvent != null && BSEvent is UserDefinedEvent)
-            {
-                UserDefinedEvent thisTransitionUserDefinedEvent = BSEvent as UserDefinedEvent;
-                foreach (UserDefinedEvent userDefinedEvent in userDefinedEvents)
-                {
-                    if (userDefinedEvent.OriginalName != userDefinedEvent.Name && thisTransitionUserDefinedEvent.Name == userDefinedEvent.OriginalName)
-                    {
-                        thisTransitionUserDefinedEvent.Name = userDefinedEvent.Name;
-                        _image.ToolTip = thisTransitionUserDefinedEvent.GetToolTip();
-                    }
-                }
-            }
-        }
+//        public void UpdateUserDefinedEvents(ObservableCollection<UserDefinedEvent> userDefinedEvents)
+//        {
+//            if (BSEvent != null && BSEvent is UserDefinedEvent)
+//            {
+//                UserDefinedEvent thisTransitionUserDefinedEvent = BSEvent as UserDefinedEvent;
+//                foreach (UserDefinedEvent userDefinedEvent in userDefinedEvents)
+//                {
+//                    if (userDefinedEvent.OriginalName != userDefinedEvent.Name && thisTransitionUserDefinedEvent.Name == userDefinedEvent.OriginalName)
+//                    {
+//                        thisTransitionUserDefinedEvent.Name = userDefinedEvent.Name;
+//                        _image.ToolTip = thisTransitionUserDefinedEvent.GetToolTip();
+//                    }
+//                }
+//            }
+//        }
 
         public void UpdateUserVariables(UserVariableSet userVariableSet)
         {
