@@ -455,28 +455,28 @@ namespace BAModel
 //            UpdateCanvasSize(canvas);
 //        }
 
-        public bool InitialState
-        {
-            get { return _idBorder.Child != _idTextBlock; }
-            set
-            {
-                if (value == true)
-                {
-                    //_idTextBlock.Visibility = Visibility.Hidden;
-                    if (_imgHome == null)
-                    {
-                        _imgHome = new Image();
-                        Image img = (Image)Application.Current.TryFindResource("home");
-                        _imgHome.Source = img.Source;
-                    }
-                    _idBorder.Child = _imgHome;
-                }
-                else
-                {
-                    _idBorder.Child = _idTextBlock;
-                }
-            }
-        }
+//        public bool InitialState
+//        {
+//            get { return _idBorder.Child != _idTextBlock; }
+//            set
+//            {
+//                if (value == true)
+//                {
+//                    //_idTextBlock.Visibility = Visibility.Hidden;
+//                    if (_imgHome == null)
+//                    {
+//                        _imgHome = new Image();
+//                        Image img = (Image)Application.Current.TryFindResource("home");
+//                        _imgHome.Source = img.Source;
+//                    }
+//                    _idBorder.Child = _imgHome;
+//                }
+//                else
+//                {
+//                    _idBorder.Child = _idTextBlock;
+//                }
+//            }
+//        }
 
 //        public StackPanel StackPanel
 //        {
@@ -504,10 +504,10 @@ namespace BAModel
 //            set { _anchorPosition = value; }
 //        }
 
-        public void ClearRect()
-        {
-            _rect.Width = 0;
-        }
+//        public void ClearRect()
+//        {
+//            _rect.Width = 0;
+//        }
 
 //        public System.Windows.Rect Rect
 //        {
@@ -692,16 +692,16 @@ namespace BAModel
         {
             writer.WriteElementString("name", _name);
 
-            if (!publish)
-            {
-                System.Windows.Rect rect = Rect;
-
-                writer.WriteElementString("x", Convert.ToInt32(rect.X).ToString());
-                writer.WriteElementString("y", Convert.ToInt32(rect.Y).ToString());
-                writer.WriteElementString("width", Convert.ToInt32(rect.Width).ToString());
-                writer.WriteElementString("height", Convert.ToInt32(rect.Height).ToString());
-                writer.WriteElementString("id", ID.ToString());
-            }
+//            if (!publish)
+//            {
+//                System.Windows.Rect rect = Rect;
+//
+//                writer.WriteElementString("x", Convert.ToInt32(rect.X).ToString());
+//                writer.WriteElementString("y", Convert.ToInt32(rect.Y).ToString());
+//                writer.WriteElementString("width", Convert.ToInt32(rect.Width).ToString());
+//                writer.WriteElementString("height", Convert.ToInt32(rect.Height).ToString());
+//                writer.WriteElementString("id", ID.ToString());
+//            }
 
             _mediaPlaylistItem.WriteToXml(writer, publish, sign, this);
 
@@ -841,26 +841,26 @@ namespace BAModel
             return Convert.ToDouble(valStr);
         }
 
-        public void ShowAsSelected(bool selected)
-        {
-            if (selected)
-            {
-                _mediaStateBorder.Background = Brushes.Blue;
-            }
-            else
-            {
-                _mediaStateBorder.Background = Brushes.White;
-            }
-        }
+//        public void ShowAsSelected(bool selected)
+//        {
+//            if (selected)
+//            {
+//                _mediaStateBorder.Background = Brushes.Blue;
+//            }
+//            else
+//            {
+//                _mediaStateBorder.Background = Brushes.White;
+//            }
+//        }
 
-        public void DeleteInternalTransition(Transition transition)
-        {
-            if (MediaPlaylistItem != null && MediaPlaylistItem is InteractiveMenuPlaylistItem)
-            {
-                InteractiveMenuPlaylistItem interactiveMenuPlaylistItem = MediaPlaylistItem as InteractiveMenuPlaylistItem;
-                interactiveMenuPlaylistItem.RemoveInternalTransition(transition);
-            }
-        }
+//        public void DeleteInternalTransition(Transition transition)
+//        {
+//            if (MediaPlaylistItem != null && MediaPlaylistItem is InteractiveMenuPlaylistItem)
+//            {
+//                InteractiveMenuPlaylistItem interactiveMenuPlaylistItem = MediaPlaylistItem as InteractiveMenuPlaylistItem;
+//                interactiveMenuPlaylistItem.RemoveInternalTransition(transition);
+//            }
+//        }
 
         public void GetUsedUserDefinedEvents(Dictionary<string, UserDefinedEvent> usedUserDefinedEvents)
         {
@@ -1287,28 +1287,28 @@ namespace BAModel
             }
         }
 
-        public bool IsAudioItem()
-        {
-            if (MediaPlaylistItem != null)
-            {
-                if (MediaPlaylistItem is AudioPlaylistItem)
-                {
-                    return true;
-                }
-
-                if ((MediaPlaylistItem is MediaListPlaylistItem) && ((MediaPlaylistItem as MediaListPlaylistItem).MediaType == "audio"))
-                {
-                    return true;
-                }
-
-                if ((MediaPlaylistItem is PlayFilePlaylistItem) && ((MediaPlaylistItem as PlayFilePlaylistItem).MediaType == "audio"))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
+//        public bool IsAudioItem()
+//        {
+//            if (MediaPlaylistItem != null)
+//            {
+//                if (MediaPlaylistItem is AudioPlaylistItem)
+//                {
+//                    return true;
+//                }
+//
+//                if ((MediaPlaylistItem is MediaListPlaylistItem) && ((MediaPlaylistItem as MediaListPlaylistItem).MediaType == "audio"))
+//                {
+//                    return true;
+//                }
+//
+//                if ((MediaPlaylistItem is PlayFilePlaylistItem) && ((MediaPlaylistItem as PlayFilePlaylistItem).MediaType == "audio"))
+//                {
+//                    return true;
+//                }
+//            }
+//
+//            return false;
+//        }
 
 //        private void MediaStateContextMenu_Opened(object sender, RoutedEventArgs e)
 //        {

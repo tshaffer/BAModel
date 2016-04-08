@@ -206,25 +206,25 @@ namespace BAModel
             item.PropertyChanged -= PlaylistItemPropertyChanged;
         }
 
-        public override void RegenerateThumbs()
-        {
-            base.RegenerateThumbs();
-
-            if (Type == ZonePlaylistType.Interactive)
-            {
-                foreach (MediaState mediaState in AllMediaStates)
-                {
-                    MediaPlaylistItem mediaPlaylistItem = mediaState.MediaPlaylistItem;
-                    if (mediaPlaylistItem != null)
-                    {
-                        if (mediaPlaylistItem is FilePlaylistItem)
-                        {
-                            (mediaPlaylistItem as FilePlaylistItem).RegenerateThumb();
-                        }
-                    }
-                }
-            }
-        }
+//        public override void RegenerateThumbs()
+//        {
+//            base.RegenerateThumbs();
+//
+//            if (Type == ZonePlaylistType.Interactive)
+//            {
+//                foreach (MediaState mediaState in AllMediaStates)
+//                {
+//                    MediaPlaylistItem mediaPlaylistItem = mediaState.MediaPlaylistItem;
+//                    if (mediaPlaylistItem != null)
+//                    {
+//                        if (mediaPlaylistItem is FilePlaylistItem)
+//                        {
+//                            (mediaPlaylistItem as FilePlaylistItem).RegenerateThumb();
+//                        }
+//                    }
+//                }
+//            }
+//        }
 
         private List<BrightSignCmd> CopyBrightSignCmdList(List<BrightSignCmd> brightSignCmds)
         {

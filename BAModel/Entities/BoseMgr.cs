@@ -62,7 +62,7 @@ namespace BAModel
             }
             catch (Exception ex)
             {
-                App.myTraceListener.Assert(false, ex.ToString());
+//                App.myTraceListener.Assert(false, ex.ToString());
             }
         }
 
