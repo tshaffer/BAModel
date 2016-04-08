@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -593,5 +593,54 @@ namespace BAModel
 
 
 	}
+
+	public class ImageBufferItem
+	{
+		public string FileName { get; set; }
+		public int FileSize { get; set; }
+
+		public bool IsEqual(Object obj)
+		{
+			//Check for null and compare run-time types.
+			if (obj == null || GetType() != obj.GetType()) return false;
+
+			ImageBufferItem ibi = (ImageBufferItem)obj;
+
+			return ibi.FileName == this.FileName && ibi.FileSize == this.FileSize;
+		}
+
+		public override int GetHashCode()
+		{
+			return base.GetHashCode();
+		}
+	}
+
+	public class DuplicateFileList
+	{
+		private List<string> _filePaths = new List<string>();
+
+		public string FileName { get; set; }
+		public List<string> FilePaths
+		{
+			get
+			{
+				return _filePaths;
+			}
+		}
+	}
+
+	public class UserVariableInUse
+	{
+		public UserVariable UserVariable { get; set; }
+		public List<string> StateNames { get; set; }
+	}
+
+	public class PresentationInUse
+	{
+		public PresentationIdentifier Presentation { get; set; }
+		public List<string> StateNames { get; set; }
+	}
+
+
 }
 

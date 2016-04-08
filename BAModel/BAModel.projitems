@@ -11,8 +11,31 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Sign.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\SerialPortConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\BoseProduct.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\BoseMgr.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\PresentationIdentifier.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\HTMLSite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\LiveDataFeed.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\ScriptPlugin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\UserVariable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Events\BSEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Events\UserDefinedEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Events\UserEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zones\Zone.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\PublishFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\ZonePlaylist.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\MediaState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Playlist.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\BrightSignCmd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Transition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Events\SimpleUserEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlaylistItem\PlaylistItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Entities\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Events\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Zones\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Commands\" />
+    <Folder Include="$(MSBuildThisFileDirectory)PlaylistItem\" />
   </ItemGroup>
 </Project>
