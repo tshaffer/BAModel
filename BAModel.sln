@@ -1,0 +1,11 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "BAModel", "BAModel\BAModel.shproj", "{A06BF8FB-0031-490B-B6B3-07D56780DAD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+	EndGlobalSection
+EndGlobal
